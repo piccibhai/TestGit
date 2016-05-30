@@ -9,14 +9,47 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Hellow Test</title>
 </head>
 <body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm("Index","Home",FormMethod.Post,new {@id="create"})) {
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>TestDb</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.id)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.id)
+                @Html.ValidationMessageFor(model => model.id)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="editor-field">
+                  @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div> 
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+   
+    
     <div>
-        <ul>
-            <li>@Model.id.ToString()</li>
-            <li>@Model.name</li>
-        </ul>
+        @Html.ActionLink("Back to List", "Index")
     </div>
+    <script type>
+        
+    </script>
 </body>
 </html>
